@@ -29,3 +29,6 @@ with open("products.json", "w") as json_file:
 # Adds tax,
 # Prints a summary invoice
 
+# i think we should add two functions:
+# one to allow user to add products to there cart
+# the second to calculate the price, add tax, then print the result to user
