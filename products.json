@@ -1,8 +1,15 @@
-[
-     {"T-shirt": "25"},
-     {"Jeans": "60"},
-     {"Sweater": "40"},
-     {"Jacket": "85"},
-     {"Dress": "55"},
-     {"Cap": "15"}
-]
+{
+  "users": [
+    {"username": "admin", "password": "0001"},
+    {"username": "abd", "password": "0002"},
+    {"username": "alex", "password": "0003"}
+  ],
+  "products": [
+    {"T-shirt": "25"},
+    {"Jeans": "60"},
+    {"Sweater": "40"},
+    {"Jacket": "85"},
+    {"Dress": "55"},
+    {"Cap": "15"}
+  ]
+}

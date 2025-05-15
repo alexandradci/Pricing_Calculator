@@ -1,17 +1,47 @@
 import json
 
+def log_attempt(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        #print(f"[LOGIN LOG] {func.__name__} returned: {result}") #debugging
+        return result
+    return wrapper
+
+@log_attempt
+def login(**kwargs):
+    retries = kwargs.get("retries", 3)
+
+    for attempt in range(retries):
+        username = input("Username: ").strip()
+        password = input("Password: ").strip()
+
+        # Use filter to find user
+        user = list(filter(lambda u: u["username"] == username and u["password"] == password, users))
+
+        if user:
+            print(f"✅ Welcome, {username}!")
+            return True
+        else:
+            print("❌ Incorrect username or password.")
+
+    print("🚫 Too many failed attempts. Exiting.")
+    return False
+
 # load products from a JSON file
 def load_products():
-    with open("products.json", "r") as prod_db:
-        products_list = json.load(prod_db)
+    with open("products.json", "r") as file:
+        data = json.load(file)
+        users = data["users"]
+        products_raw = data["products"]
+
         products_dict = {}
-        for product in products_list:
+        for product in products_raw:
             for name, price in product.items():
                 products_dict[name] = float(price)
-        return products_dict
+        return products_dict, users
 
 # load products
-products = load_products()
+products, users = load_products()
 
 # print available products
 print("Available products:")
@@ -20,9 +50,11 @@ for name, price in products.items():
 print()  # empty line for spacing
 
 # save products
-def save_products(products):
-    with open("products.json", "w") as prod_db:
-        json.dump(products, prod_db)
+def save_products(products, users):
+    prod_list = [{k: str(v)} for k, v in products.items()]
+    with open("products.json", "w") as file:
+        json.dump({"users": users, "products": prod_list}, file, indent=2)
+
 
 # calculate the total with tax and discount
 def calculate_total(order, products):
@@ -64,7 +96,13 @@ def print_receipt(summary):
     print("Thank you for shopping!\n")
 
 # program starts
-products = load_products()
+if login(retries=3):
+    # proceed to shopping
+    print("Starting the shopping program...\n")
+    # ... shopping code starts here ...
+else:
+    exit()
+
 order = []
 
 while True:
