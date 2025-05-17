@@ -56,30 +56,42 @@ def save_products(products, users):
         json.dump({"users": users, "products": prod_list}, file, indent=2)
 
 
-# calculate the total with tax and discount
-def calculate_total(order, products):
-    subtotal = sum(products[item] * qty for item, qty in order)
-    tax = subtotal * 0.19
-    total_with_tax = subtotal + tax
+def apply_discount(discount_tiers):
+    def decorator(calculate_func):
+        def wrapper(order, products):
+            summary = calculate_func(order, products)
+            total_with_tax = summary['total_with_tax']
+            discount = 0
+            discount_percentage = "0%"
 
-    if total_with_tax >= 200:
-        discount = total_with_tax * 0.2
-        discount_percentage = "20%"
-    elif total_with_tax >= 100:
-        discount = total_with_tax * 0.1
-        discount_percentage = "10%"
-    else:
-        discount = 0
-        discount_percentage = "0%"
+            for threshold, rate in discount_tiers:
+                if total_with_tax >= threshold:
+                    discount = total_with_tax * rate
+                    discount_percentage = f"{int(rate * 100)}%"
+                    break
+
+            summary['discount'] = discount
+            summary['final'] = total_with_tax - discount
+            summary['discount_percentage'] = discount_percentage
+            return summary
+        return wrapper
+    return decorator
+
+@apply_discount(discount_tiers=[(200, 0.2), (100, 0.1)])
+def calculate_total_base(order, products):
+    """Calculates the subtotal and tax."""
+    calculate_subtotal = lambda order, prods: sum(prods[item] * qty for item, qty in order)
+    subtotal = calculate_subtotal(order, products)
+    tax_rate = 0.19
+    calculate_tax = lambda sub, rate: sub * rate
+    tax = calculate_tax(subtotal, tax_rate)
+    total_with_tax = subtotal + tax
 
     return {
         'subtotal': subtotal,
         'tax': tax,
         'total_with_tax': total_with_tax,
-        'discount': discount,
-        'final': total_with_tax - discount,
-        'order': order,
-        'discount_percentage': discount_percentage
+        'order': order
     }
 
 # print the receipt
@@ -129,7 +141,7 @@ while True:
         break
 
 # calculate total
-summary = calculate_total(order, products)
+summary = calculate_total_base(order, products)
 
 # ask if the user wants a receipt
 while True:
