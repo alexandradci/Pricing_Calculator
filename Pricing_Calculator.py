@@ -97,15 +97,21 @@ def calculate_total_base(order, products):
 # print the receipt
 def print_receipt(summary):
     print("\n--- Receipt ---")
-    for item, qty in summary['order']:
-        print(f"{item} x{qty} = {products[item] * qty:.2f}€")
-    print(f"Subtotal: {summary['subtotal']:.2f}€")
-    print(f"Tax (19%): {summary['tax']:.2f}€")
-    print(f"Total with tax: {summary['total_with_tax']:.2f}€")
-    print(f"Discount: {summary['discount']:.2f}€")
-    print(f"Discount percentage: {summary['discount_percentage']}")
-    print(f"Final total: {summary['final']:.2f}€")
+    print_receipt_rec(summary['order'], summary, 0)  
     print("Thank you for shopping!\n")
+
+def print_receipt_rec(order_items, summary, index):
+    if index < len(order_items):
+        item, qty = order_items[index]
+        print(f"{item} x{qty} = {products[item] * qty:.2f}€")
+        print_receipt_rec(order_items, summary, index + 1)  
+    else:  # Base case: all items printed
+        print(f"Subtotal: {summary['subtotal']:.2f}€")
+        print(f"Tax (19%): {summary['tax']:.2f}€")
+        print(f"Total with tax: {summary['total_with_tax']:.2f}€")
+        print(f"Discount: {summary['discount']:.2f}€")
+        print(f"Discount percentage: {summary['discount_percentage']}")
+        print(f"Final total: {summary['final']:.2f}€")
 
 # program starts
 if login(retries=3):
@@ -144,15 +150,18 @@ while True:
 summary = calculate_total_base(order, products)
 
 # ask if the user wants a receipt
-while True:
-    message = input("Do you want to print a receipt? (yes/no): ").strip().lower()
-    if message == "yes":
-        print_receipt(summary)
-        break
-    elif message == "no":
-        print("Goodbye!")
-        break
-    else:
-        print("Incorrect input! Please enter yes or no.")
+def get_receipt_choice():
+    while True:
+        message = input("Do you want to print a receipt? (yes/no): ").strip().lower()
+        is_valid_input = lambda x: x in ("yes", "no")  
+        if is_valid_input(message):
+            return message
+        else:
+            print("Incorrect input! Please enter yes or no.")
 
+receipt_choice = get_receipt_choice()
 
+if receipt_choice == "yes":
+    print_receipt(summary)
+elif receipt_choice == "no":
+    print("Goodbye!")
