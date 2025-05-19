@@ -1,4 +1,7 @@
+from faker import Faker
 import json
+import random
+
 
 def log_attempt(func):
     def wrapper(*args, **kwargs):
@@ -15,7 +18,7 @@ def login(**kwargs):
         username = input("Username: ").strip()
         password = input("Password: ").strip()
 
-        # Use filter to find user
+        # use filter to find user
         user = list(filter(lambda u: u["username"] == username and u["password"] == password, users))
 
         if user:
@@ -27,13 +30,27 @@ def login(**kwargs):
     print("🚫 Too many failed attempts. Exiting.")
     return False
 
-# load products from a JSON file
+fake = Faker()
+
+# List of clothing types
+clothing_types = ["T-shirt", "Dress", "Jeans", "Jacket", "Sweater", "Cap", "Skirt", "Hoodie", "Blouse", "Shorts"]
+
+# function to generate fake products
+def generate_fake_products(n):
+    fake_products = []
+    for _ in range(n):
+        name = fake.word().capitalize()
+        price = str(random.randint(10, 100))  # match string price format
+        fake_products.append({name: price})
+    return fake_products
+
+# load products and users from a JSON file
 def load_products():
     with open("products.json", "r") as file:
         data = json.load(file)
         users = data["users"]
         products_raw = data["products"]
-
+# convert list of dicts to a single dict {name: price}
         products_dict = {}
         for product in products_raw:
             for name, price in product.items():
@@ -42,12 +59,6 @@ def load_products():
 
 # load products
 products, users = load_products()
-
-# print available products
-print("Available products:")
-for name, price in products.items():
-    print(f"- {name}: {price}€")
-print()  # empty line for spacing
 
 # save products
 def save_products(products, users):
@@ -118,8 +129,21 @@ if login(retries=3):
     # proceed to shopping
     print("Starting the shopping program...\n")
     # ... shopping code starts here ...
+    add_fake = input("Do you want to add fake products? (yes/no): ").strip().lower()
+if add_fake == "yes":
+    fake_products = generate_fake_products(5)
+    for p in fake_products:
+        products.update({k: float(v) for k, v in p.items()})
+    save_products(products, users)
+    print("✅ Fake products added.")
 else:
     exit()
+
+# print available products
+print("Available products:")
+for name, price in products.items():
+    print(f"- {name}: {price}€")
+print()  # empty line for spacing
 
 order = []
 
