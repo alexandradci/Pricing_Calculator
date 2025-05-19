@@ -15,82 +15,54 @@
   ],
   "products": [
     {
-      "T-shirt": "25.0"
+      "id": "0001",
+      "name": "Plum Puma Blouse",
+      "price": "62"
     },
     {
-      "Jeans": "60.0"
+      "id": "0002",
+      "name": "LavenderBlush Puma Sweater",
+      "price": "36"
     },
     {
-      "Sweater": "40.0"
+      "id": "0003",
+      "name": "Orange Puma Jeans",
+      "price": "67"
     },
     {
-      "Jacket": "85.0"
+      "id": "0004",
+      "name": "LightSteelBlue Nike Jeans",
+      "price": "18"
     },
     {
-      "Dress": "55.0"
+      "id": "0005",
+      "name": "DarkBlue Adidas Blouse",
+      "price": "15"
     },
     {
-      "Cap": "15.0"
+      "id": "0006",
+      "name": "Red Zara Cap",
+      "price": "29"
     },
     {
-      "Dinner": "95.0"
+      "id": "0007",
+      "name": "Aquamarine Puma Hoodie",
+      "price": "91"
     },
     {
-      "Pattern": "48.0"
+      "id": "0008",
+      "name": "Snow H&M Dress",
+      "price": "62"
     },
     {
-      "Charge": "87.0"
+      "id": "0009",
+      "name": "Beige H&M Skirt",
+      "price": "81"
     },
     {
-      "Idea": "20.0"
-    },
-    {
-      "Prevent": "40.0"
-    },
-    {
-      "Back": "63.0"
-    },
-    {
-      "Old": "71.0"
-    },
-    {
-      "Pull": "100.0"
-    },
-    {
-      "Quite": "20.0"
-    },
-    {
-      "Interest": "80.0"
-    },
-    {
-      "Crime": "16.0"
-    },
-    {
-      "Common": "67.0"
-    },
-    {
-      "Would": "92.0"
-    },
-    {
-      "Food": "12.0"
-    },
-    {
-      "Quickly": "22.0"
-    },
-    {
-      "Color": "40.0"
-    },
-    {
-      "Never": "47.0"
-    },
-    {
-      "Could": "19.0"
-    },
-    {
-      "Artist": "59.0"
-    },
-    {
-      "Including": "39.0"
+      "id": "0010",
+      "name": "White Adidas Jeans",
+      "price": "37"
     }
   ]
 }

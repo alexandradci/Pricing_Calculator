@@ -34,15 +34,26 @@ fake = Faker()
 
 # List of clothing types
 clothing_types = ["T-shirt", "Dress", "Jeans", "Jacket", "Sweater", "Cap", "Skirt", "Hoodie", "Blouse", "Shorts"]
+brands = ["Zara", "H&M", "Nike", "Adidas", "Puma", "Levi's"]
 
 # function to generate fake products
-def generate_fake_products(n):
-    fake_products = []
-    for _ in range(n):
-        name = fake.word().capitalize()
-        price = str(random.randint(10, 100))  # match string price format
-        fake_products.append({name: price})
-    return fake_products
+def generate_fake_clothes(n, starting_id=1):
+    products = []
+    for i in range(n):
+        name = f"{fake.color_name()} {random.choice(brands)} {random.choice(clothing_types)}"
+        price = str(random.randint(10, 100))
+
+        # ID with leading zeros: 0001, 0002, ...
+        product_id = f"{starting_id + i:04d}"
+
+        product = {
+            "id": product_id,
+            "name": name,
+            "price": price
+        }
+        products.append(product)
+    return products
+
 
 # load products and users from a JSON file
 def load_products():
@@ -50,21 +61,24 @@ def load_products():
         data = json.load(file)
         users = data["users"]
         products_raw = data["products"]
-# convert list of dicts to a single dict {name: price}
+
         products_dict = {}
         for product in products_raw:
-            for name, price in product.items():
-                products_dict[name] = float(price)
-        return products_dict, users
+            name = product["name"]
+            price = float(product["price"])
+            products_dict[name] = price
+
+        return products_raw, products_dict, users
+
 
 # load products
-products, users = load_products()
+products_raw, products, users = load_products()
+
 
 # save products
-def save_products(products, users):
-    prod_list = [{k: str(v)} for k, v in products.items()]
+def save_products(product_list, users):
     with open("products.json", "w") as file:
-        json.dump({"users": users, "products": prod_list}, file, indent=2)
+        json.dump({"users": users, "products": product_list}, file, indent=2)
 
 
 def apply_discount(discount_tiers):
@@ -131,34 +145,39 @@ if login(retries=3):
     # ... shopping code starts here ...
     add_fake = input("Do you want to add fake products? (yes/no): ").strip().lower()
 if add_fake == "yes":
-    fake_products = generate_fake_products(5)
-    for p in fake_products:
-        products.update({k: float(v) for k, v in p.items()})
-    save_products(products, users)
+    clothes = generate_fake_clothes(10)
+    for p in clothes:
+        products[p["name"]] = float(p["price"])
+    save_products(clothes, users) 
     print("✅ Fake products added.")
 else:
     exit()
 
 # print available products
 print("Available products:")
-for name, price in products.items():
-    print(f"- {name}: {price}€")
+for item in products_raw:
+    print(f"{item['id']}. {item['name']}: {float(item['price']):.2f}€")
+
 print()  # empty line for spacing
 
 order = []
 
 while True:
-    prod = input("Enter the name of product: ")
-    if prod in products:
-        quant_input = input(f"Enter the quantity of {prod}: ")
+    prod_id = input("Enter the ID of product: ").strip()
+
+    # Find the product by ID from products_raw
+    selected = next((item for item in products_raw if item["id"] == prod_id), None)
+
+    if selected:
+        quant_input = input(f"Enter the quantity of {selected['name']}: ")
         if quant_input.isdigit():
             quant = int(quant_input)
-            order.append((prod, quant))
+            order.append((selected["name"], quant))  # Use product name for calculations
         else:
             print("Please enter a valid number.")
             continue
     else:
-        print("Product not found.")
+        print("Product ID not found.")
         continue
 
     add_more = input("Do you want to add more items? Enter 'yes' or 'no': ").strip().lower()
@@ -169,6 +188,7 @@ while True:
     else:
         print("Invalid input, assuming 'no'.")
         break
+
 
 # calculate total
 summary = calculate_total_base(order, products)
