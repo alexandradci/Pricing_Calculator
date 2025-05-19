@@ -114,7 +114,7 @@ def print_receipt(summary):
 def print_receipt_rec(order_items, summary, index):
     if index < len(order_items):
         item, qty = order_items[index]
-        print(f"{item} x{qty} = {products[item] * qty:.2f}€")
+        print(f"{item}: {products[item]:.2f} * {qty} = {products[item] * qty:.2f}€")
         print_receipt_rec(order_items, summary, index + 1)  
     else:  # Base case: all items printed
         print(f"Subtotal: {summary['subtotal']:.2f}€")
