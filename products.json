@@ -16,53 +16,53 @@
   "products": [
     {
       "id": "0001",
-      "name": "Plum Puma Blouse",
-      "price": "62"
+      "name": "DarkViolet Adidas Sweater",
+      "price": "92"
     },
     {
       "id": "0002",
-      "name": "LavenderBlush Puma Sweater",
-      "price": "36"
+      "name": "SeaShell Levi's Skirt",
+      "price": "44"
     },
     {
       "id": "0003",
-      "name": "Orange Puma Jeans",
-      "price": "67"
+      "name": "SandyBrown Adidas Jacket",
+      "price": "80"
     },
     {
       "id": "0004",
-      "name": "LightSteelBlue Nike Jeans",
-      "price": "18"
+      "name": "SandyBrown Zara Shorts",
+      "price": "73"
     },
     {
       "id": "0005",
-      "name": "DarkBlue Adidas Blouse",
-      "price": "15"
+      "name": "PeachPuff Adidas T-shirt",
+      "price": "51"
     },
     {
       "id": "0006",
-      "name": "Red Zara Cap",
-      "price": "29"
+      "name": "Pink Nike Hoodie",
+      "price": "37"
     },
     {
       "id": "0007",
-      "name": "Aquamarine Puma Hoodie",
-      "price": "91"
+      "name": "White H&M T-shirt",
+      "price": "21"
     },
     {
       "id": "0008",
-      "name": "Snow H&M Dress",
-      "price": "62"
+      "name": "LightSteelBlue Puma Hoodie",
+      "price": "45"
     },
     {
       "id": "0009",
-      "name": "Beige H&M Skirt",
-      "price": "81"
+      "name": "DarkGoldenRod Adidas Shorts",
+      "price": "56"
     },
     {
       "id": "0010",
-      "name": "White Adidas Jeans",
-      "price": "37"
+      "name": "Ivory Puma Skirt",
+      "price": "20"
     }
   ]
 }
