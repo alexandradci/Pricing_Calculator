@@ -1,15 +1,96 @@
 {
   "users": [
-    {"username": "admin", "password": "0001"},
-    {"username": "abd", "password": "0002"},
-    {"username": "alex", "password": "0003"}
+    {
+      "username": "admin",
+      "password": "0001"
+    },
+    {
+      "username": "abd",
+      "password": "0002"
+    },
+    {
+      "username": "alex",
+      "password": "0003"
+    }
   ],
   "products": [
-    {"T-shirt": "25"},
-    {"Jeans": "60"},
-    {"Sweater": "40"},
-    {"Jacket": "85"},
-    {"Dress": "55"},
-    {"Cap": "15"}
+    {
+      "T-shirt": "25.0"
+    },
+    {
+      "Jeans": "60.0"
+    },
+    {
+      "Sweater": "40.0"
+    },
+    {
+      "Jacket": "85.0"
+    },
+    {
+      "Dress": "55.0"
+    },
+    {
+      "Cap": "15.0"
+    },
+    {
+      "Dinner": "95.0"
+    },
+    {
+      "Pattern": "48.0"
+    },
+    {
+      "Charge": "87.0"
+    },
+    {
+      "Idea": "20.0"
+    },
+    {
+      "Prevent": "40.0"
+    },
+    {
+      "Back": "63.0"
+    },
+    {
+      "Old": "71.0"
+    },
+    {
+      "Pull": "100.0"
+    },
+    {
+      "Quite": "20.0"
+    },
+    {
+      "Interest": "80.0"
+    },
+    {
+      "Crime": "16.0"
+    },
+    {
+      "Common": "67.0"
+    },
+    {
+      "Would": "92.0"
+    },
+    {
+      "Food": "12.0"
+    },
+    {
+      "Quickly": "22.0"
+    },
+    {
+      "Color": "40.0"
+    },
+    {
+      "Never": "47.0"
+    },
+    {
+      "Could": "19.0"
+    },
+    {
+      "Artist": "59.0"
+    },
+    {
+      "Including": "39.0"
+    }
   ]
 }
