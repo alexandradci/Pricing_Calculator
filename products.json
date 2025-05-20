@@ -14,6 +14,105 @@
     }
   ],
   "products": [
-    
+    {
+      "id": "0001",
+      "name": "DarkSlateBlue Levi's Dress",
+      "price": "21"
+    },
+    {
+      "id": "0002",
+      "name": "Cyan Puma Jacket",
+      "price": "81"
+    },
+    {
+      "id": "0003",
+      "name": "MediumSpringGreen Zara Jacket",
+      "price": "52"
+    },
+    {
+      "id": "0004",
+      "name": "ForestGreen Puma Hoodie",
+      "price": "16"
+    },
+    {
+      "id": "0005",
+      "name": "DodgerBlue Adidas Sweater",
+      "price": "83"
+    },
+    {
+      "id": "0006",
+      "name": "BlueViolet Nike Jeans",
+      "price": "97"
+    },
+    {
+      "id": "0007",
+      "name": "CadetBlue Adidas Dress",
+      "price": "56"
+    },
+    {
+      "id": "0008",
+      "name": "LightGray Zara Sweater",
+      "price": "37"
+    },
+    {
+      "id": "0009",
+      "name": "Salmon Nike Skirt",
+      "price": "85"
+    },
+    {
+      "id": "0010",
+      "name": "Turquoise Zara Sweater",
+      "price": "57"
+    },
+    {
+      "id": "0001",
+      "name": "SlateGray Nike Blouse",
+      "price": "38"
+    },
+    {
+      "id": "0002",
+      "name": "BurlyWood Zara Jacket",
+      "price": "50"
+    },
+    {
+      "id": "0003",
+      "name": "PaleTurquoise H&M Cap",
+      "price": "72"
+    },
+    {
+      "id": "0004",
+      "name": "CadetBlue Levi's Blouse",
+      "price": "91"
+    },
+    {
+      "id": "0005",
+      "name": "Yellow H&M Jeans",
+      "price": "45"
+    },
+    {
+      "id": "0006",
+      "name": "Ivory Adidas Jacket",
+      "price": "34"
+    },
+    {
+      "id": "0007",
+      "name": "Green Adidas T-shirt",
+      "price": "70"
+    },
+    {
+      "id": "0008",
+      "name": "PaleGoldenRod Adidas T-shirt",
+      "price": "86"
+    },
+    {
+      "id": "0009",
+      "name": "LightCoral Nike Sweater",
+      "price": "86"
+    },
+    {
+      "id": "0010",
+      "name": "Red Nike Skirt",
+      "price": "74"
+    }
   ]
 }
