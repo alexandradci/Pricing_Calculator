@@ -154,18 +154,23 @@ while True:
     if add_more != 'yes':
         break
 
+# calculate total
 summary = calculate_total_base(order, products)
 
+# ask if the user wants a receipt
 def get_receipt_choice():
     while True:
         message = input("Do you want to print a receipt? (yes/no): ").strip().lower()
-        if message in ("yes", "no"):
+        is_valid_input = lambda x: x in ("yes", "no")  
+        if is_valid_input(message):
             return message
         else:
             print("Incorrect input! Please enter yes or no.")
 
 receipt_choice = get_receipt_choice()
+
 if receipt_choice == "yes":
     print_receipt(summary)
-else:
+elif receipt_choice == "no":
     print("Goodbye!")
+

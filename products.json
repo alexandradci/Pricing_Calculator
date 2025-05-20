@@ -113,6 +113,56 @@
       "id": "0010",
       "name": "Red Nike Skirt",
       "price": "74"
+    },
+    {
+      "id": "0001",
+      "name": "LightSeaGreen Levi's Jeans",
+      "price": "10"
+    },
+    {
+      "id": "0002",
+      "name": "DeepSkyBlue Adidas Cap",
+      "price": "13"
+    },
+    {
+      "id": "0003",
+      "name": "PeachPuff Zara Sweater",
+      "price": "25"
+    },
+    {
+      "id": "0004",
+      "name": "Cornsilk H&M Sweater",
+      "price": "94"
+    },
+    {
+      "id": "0005",
+      "name": "Lavender Puma Hoodie",
+      "price": "49"
+    },
+    {
+      "id": "0006",
+      "name": "Orchid Adidas T-shirt",
+      "price": "96"
+    },
+    {
+      "id": "0007",
+      "name": "GhostWhite Levi's Jeans",
+      "price": "76"
+    },
+    {
+      "id": "0008",
+      "name": "LightSeaGreen Nike Skirt",
+      "price": "53"
+    },
+    {
+      "id": "0009",
+      "name": "Snow Levi's Blouse",
+      "price": "29"
+    },
+    {
+      "id": "0010",
+      "name": "Moccasin Adidas Sweater",
+      "price": "69"
     }
   ]
 }
