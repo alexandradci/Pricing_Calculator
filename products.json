@@ -163,6 +163,106 @@
       "id": "0010",
       "name": "Moccasin Adidas Sweater",
       "price": "69"
+    },
+    {
+      "id": "0001",
+      "name": "LightCyan Adidas Dress",
+      "price": "27"
+    },
+    {
+      "id": "0002",
+      "name": "Gainsboro Levi's Cap",
+      "price": "99"
+    },
+    {
+      "id": "0003",
+      "name": "LemonChiffon H&M Hoodie",
+      "price": "42"
+    },
+    {
+      "id": "0004",
+      "name": "MediumSlateBlue Adidas T-shirt",
+      "price": "13"
+    },
+    {
+      "id": "0005",
+      "name": "Snow Nike Dress",
+      "price": "18"
+    },
+    {
+      "id": "0006",
+      "name": "PaleTurquoise H&M Jacket",
+      "price": "92"
+    },
+    {
+      "id": "0007",
+      "name": "MediumOrchid Nike Jacket",
+      "price": "45"
+    },
+    {
+      "id": "0008",
+      "name": "PapayaWhip Nike Blouse",
+      "price": "59"
+    },
+    {
+      "id": "0009",
+      "name": "Chocolate Puma Sweater",
+      "price": "97"
+    },
+    {
+      "id": "0010",
+      "name": "DeepPink H&M Jacket",
+      "price": "53"
+    },
+    {
+      "id": "0001",
+      "name": "Sienna Nike Shorts",
+      "price": "58"
+    },
+    {
+      "id": "0002",
+      "name": "Salmon Zara Blouse",
+      "price": "44"
+    },
+    {
+      "id": "0003",
+      "name": "DimGray Zara Jeans",
+      "price": "24"
+    },
+    {
+      "id": "0004",
+      "name": "DarkSalmon Nike Cap",
+      "price": "43"
+    },
+    {
+      "id": "0005",
+      "name": "Moccasin Zara T-shirt",
+      "price": "68"
+    },
+    {
+      "id": "0006",
+      "name": "Lavender Zara Blouse",
+      "price": "18"
+    },
+    {
+      "id": "0007",
+      "name": "MediumVioletRed Adidas Hoodie",
+      "price": "86"
+    },
+    {
+      "id": "0008",
+      "name": "Gray H&M Shorts",
+      "price": "47"
+    },
+    {
+      "id": "0009",
+      "name": "DarkRed Puma Sweater",
+      "price": "99"
+    },
+    {
+      "id": "0010",
+      "name": "Linen Levi's Dress",
+      "price": "93"
     }
   ]
 }
